@@ -1,0 +1,14 @@
+@import "./theme/duke-tokens.css";
+@import "./theme/duke-fonts.css";
+:root { color-scheme: light; font-family: var(--duke-font-body); font-variant-numeric: lining-nums tabular-nums; color: var(--duke-cast-iron); background: var(--duke-whisper-gray); }
+* { box-sizing: border-box; }
+body { margin: 0; border-top: 8px solid var(--duke-navy-blue); }
+main { max-width: 52rem; margin: 0 auto; padding: clamp(1.5rem, 6vw, 5rem) 1.5rem; }
+h1 { color: var(--duke-navy-blue); font: 400 clamp(2.25rem, 6vw, 4rem)/1.1 var(--duke-font-heading); max-width: 16ch; text-wrap: balance; font-variant-numeric: lining-nums tabular-nums; }
+p, aside { line-height: 1.65; max-width: 62ch; }
+b, strong { font-weight: 600; }
+.eyebrow { font-size: .875rem; color: var(--duke-navy-blue); }
+button { font: inherit; min-height: 44px; padding: .85rem 1.25rem; color: var(--duke-white); background: var(--duke-navy-blue); border: 2px solid var(--duke-navy-blue); cursor: pointer; }
+button:hover { background: var(--duke-royal-blue); }
+:focus-visible { outline: 3px solid var(--duke-royal-blue); outline-offset: 4px; }
+aside { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--duke-graphite); font-size: .875rem; }
