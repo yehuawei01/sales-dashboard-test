@@ -3,18 +3,103 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your browser app</title>
+  <meta name="description" content="Compare three methods on the BANKING77 test set and explore the mistakes behind their accuracy scores.">
+  <title>Prediction comparison dashboard</title>
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./app.js"></script>
 </head>
 <body>
-  <main>
-    <p class="eyebrow">Local project · Starter preview</p>
-    <h1>Your browser app starts here.</h1>
-    <p>Define a useful problem, make the assumptions explicit, and check the result.</p>
-    <button type="button" id="check">Check interaction</button>
-    <p id="status" role="status">Waiting for the JavaScript module. Open this page through your project preview.</p>
-    <aside>This is a starter, not an evaluated application. Plan the behavior before building it.</aside>
+  <a class="skip-link" href="#comparison">Skip to the comparison</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-title" href="#top">Prediction comparison dashboard</a>
+      <span class="local-label">Local experiment</span>
+    </div>
+  </header>
+  <main id="top">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">BANKING77 · Three methods, the same examples</p>
+      <h1 id="page-title">Look beyond the overall score.</h1>
+      <p class="intro-copy">Compare the predictions, then explore the mistakes. A method that leads overall can still struggle with a particular request type.</p>
+      <div class="intro-bottom">
+        <p id="dataset-description">Loading the local prediction files…</p>
+        <a href="#reading-guide">How to read this</a>
+      </div>
+    </section>
+    <div id="load-status" class="message" role="status">Reading and checking all three files…</div>
+    <section id="load-error" class="message error-message" role="alert" hidden>
+      <h2>We couldn’t compare these files.</h2>
+      <p id="error-text"></p>
+      <button id="retry" type="button">Try loading again</button>
+    </section>
+    <aside id="warnings" class="message warning-message" hidden aria-label="Data quality notes"></aside>
+    <div id="dashboard" hidden>
+      <section id="comparison" class="comparison-section" aria-labelledby="comparison-title" tabindex="-1">
+        <div class="section-top">
+          <div>
+            <p class="eyebrow section-number">01 · Compare</p>
+            <h2 id="comparison-title">How often were they correct?</h2>
+            <p id="sample-size" class="section-description"></p>
+          </div>
+          <div class="category-control">
+            <label for="category">Known request type</label>
+            <select id="category" aria-describedby="category-help"><option value="">All request types</option></select>
+            <p id="category-help" class="control-help">Changes both the scores and the examples.</p>
+          </div>
+        </div>
+        <div id="summary-cards" class="summary-grid"></div>
+        <div class="comparison-note"><p id="comparison-insight"></p><span>Accuracy scale: 0–100%</span></div>
+      </section>
+      <section id="examples" class="examples-section" aria-labelledby="examples-title">
+        <div class="section-top examples-top">
+          <div>
+            <p class="eyebrow section-number">02 · Investigate</p>
+            <h2 id="examples-title">See the predictions side by side.</h2>
+            <p class="section-description">The known request type is the reference answer. Each method’s prediction is marked correct or incorrect.</p>
+          </div>
+          <button id="reset" class="secondary-button" type="button">Reset view</button>
+        </div>
+        <div class="example-controls">
+          <div><label for="view">Show examples</label><select id="view"><option value="incorrect">Any method incorrect</option><option value="disagree">Methods disagree</option><option value="all">All examples</option></select></div>
+          <div class="search-control"><label for="search">Search example text</label><input id="search" type="search" placeholder="Try “card” or “transfer”" autocomplete="off" aria-describedby="list-scope"></div>
+        </div>
+        <p id="list-scope" class="control-help list-scope">These two controls affect the example list only. The accuracy scores above stay based on the selected request type.</p>
+        <div class="results-toolbar">
+          <p id="results-count" role="status" aria-live="polite" aria-atomic="true"></p>
+          <nav class="pagination" aria-label="Example pages"><button id="previous" class="secondary-button" type="button">Previous</button><span id="page-label"></span><button id="next" class="secondary-button" type="button">Next</button></nav>
+        </div>
+        <div id="empty-results" class="empty-results" hidden><h3>No examples match this view.</h3><p>Try a different request type, clear the search, or choose All examples.</p></div>
+        <table id="example-table" class="example-table">
+          <caption class="sr-only">Example text, known request type, and predictions from all three methods. Each row is one shared example.</caption>
+          <thead><tr><th scope="col">Example</th><th scope="col">Known request type</th><th scope="col">Word-based</th><th scope="col">Fine-tuned</th><th scope="col">Prompted LLM</th></tr></thead>
+          <tbody id="example-rows"></tbody>
+        </table>
+        <p class="small-note">These are saved predictions on a test set. The dashboard does not generate new answers or measure cost, speed, or confidence.</p>
+      </section>
+    </div>
+    <section id="reading-guide" class="reading-guide" aria-labelledby="guide-title">
+      <details>
+        <summary id="guide-title">How to read this comparison</summary>
+        <div class="guide-grid">
+          <div><h3>Accuracy</h3><p>The percentage of examples where a prediction exactly matches the known request type. Correct answers ÷ examples × 100.</p></div>
+          <div><h3>Known request type</h3><p>The category assigned in the test data, used here as the reference answer. Filter it to inspect one kind of request.</p></div>
+          <div><h3>Disagreement</h3><p>The methods predicted different categories. Agreement does not prove correctness: all three can agree on a wrong answer.</p></div>
+          <div><h3>Read the sample size</h3><p>Each request type has 40 examples in this dataset. The scores describe this test set, so a small category result should be interpreted with care.</p></div>
+        </div>
+      </details>
+    </section>
   </main>
+  <footer class="site-footer"><div class="footer-inner">
+    <p>Example text and reference labels: <a href="https://github.com/PolyAI-LDN/task-specific-datasets">PolyAI BANKING77</a>, Casanueva et al. (2020), Efficient Intent Detection with Dual Sentence Encoders. <a href="./data/BANKING77-LICENSE.txt">CC BY 4.0 license</a>. The supplied files add case IDs and method predictions; their generation has not been verified.</p>
+    <details class="build-notes">
+      <summary>How this was built</summary>
+      <p>Planned as a simple local dashboard for comparing three prediction methods and exploring mistakes. The default opens on examples with an incorrect prediction. Category filters change the comparison; search and example filters change only the list.</p>
+      <p>Built with Browser App Builder’s Plan, Build, CSV-reading, and Campus Designer skills. Papa Parse reads the CSV files; native browser controls and calculations provide the comparison. The local build uses Vite. No training, model calls, accounts, analytics, or saved browser selections are used.</p>
+      <p id="verification-note">Initial checks: all 30 calculation, data, font, and text-rendering checks passed. Browser checks confirmed filtering, paging, reset, keyboard search, and desktop and narrow layouts. A separate evaluation of the complete dashboard is still pending; these checks do not verify how the predictions were generated.</p>
+      <p><a href="./data/SOURCE.txt">Data source and changes</a> · <a href="./THIRD-PARTY-NOTICES.txt">Library and font licenses</a></p>
+    </details>
+    <p class="footer-bottom">A local learning experiment. Uses Duke-inspired styling; no institutional endorsement is implied.</p>
+  </div></footer>
 </body>
 </html>

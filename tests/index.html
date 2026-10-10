@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prediction comparison dashboard — calculation tests</title>
+    <link rel="stylesheet" href="../app/theme/duke-fonts.css">
+    <link rel="stylesheet" href="../app/theme/duke-tokens.css">
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; padding: 2rem; background: #f7f8fa; color: #172b4d; font-family: "Open Sans", Arial, sans-serif; line-height: 1.6; }
+      main { max-width: 960px; margin: auto; }
+      h1 { font-family: "EB Garamond", Georgia, serif; font-weight: 400; font-size: 2.5rem; line-height: 1.15; }
+      a { color: #00539b; }
+      a:focus-visible { outline: 3px solid #00539b; outline-offset: 3px; }
+      #test-status { padding: 1rem; border: 2px solid #00539b; background: white; font-weight: 600; }
+      ol { padding-left: 1.8rem; }
+      li { background: white; margin-bottom: .65rem; padding: .75rem; border-left: 4px solid #b8c2cc; overflow-wrap: anywhere; }
+      li[data-status="pass"] { border-color: #246a48; }
+      li[data-status="fail"] { border-color: #a02736; }
+      pre { white-space: pre-wrap; margin: .5rem 0 0; font: .9rem/1.6 monospace; }
+      .font-samples { background: white; padding: .75rem 1rem; margin-block: 1rem; }
+      .font-samples p { margin-block: .3rem; }
+      #font-open-sans-400 { font-weight: 400; }
+      #font-open-sans-600 { font-weight: 600; }
+      @media (max-width: 480px) { body { padding: 1rem; } h1 { font-size: 2rem; } }
+    </style>
+  </head>
+  <body data-state="loading">
+    <main>
+      <p><a href="http://127.0.0.1:5173/">Open the development dashboard (port 5173)</a></p>
+      <h1>Calculation and data checks</h1>
+      <p>These checks use the dashboard’s own calculation module. Expected totals come from the agreed plan’s independent count and its eight invented examples. They do not establish how the supplied prediction methods were trained.</p>
+      <p id="test-status" role="status" aria-live="polite">Loading tests. No result yet.</p>
+      <div class="font-samples" aria-label="Local font verification samples">
+        <p id="font-open-sans-400">Open Sans regular: this page uses the dashboard’s local font files.</p>
+        <p id="font-open-sans-600">Open Sans semibold: the heading above uses EB Garamond regular.</p>
+      </div>
+      <p id="font-status" role="status" aria-live="polite">Waiting to verify the three local font faces.</p>
+      <ol id="test-results" aria-label="Individual test results"></ol>
+      <p>This page checks calculations, data validation, filtering, pagination, actual local font loading, and safe text rendering through the dashboard’s own row renderer. The dashboard’s layout, keyboard controls, and loading messages also need browser inspection.</p>
+    </main>
+    <script type="module">
+      const status = document.getElementById('test-status');
+      const fontStatus = document.getElementById('font-status');
+      const results = document.getElementById('test-results');
+      function showResult(result) {
+            const item = document.createElement('li');
+            item.dataset.status = result.passed ? 'pass' : 'fail';
+            const name = document.createElement('strong');
+            name.textContent = `${result.passed ? 'PASS' : 'FAIL'} — ${result.name}`;
+            item.append(name);
+            if (result.error) {
+              const details = document.createElement('pre');
+              details.textContent = result.error;
+              item.append(details);
+            }
+            results.append(item);
+            status.textContent = `Running checks: ${results.children.length} completed.`;
+            if (result.kind === 'font') {
+              fontStatus.textContent = result.passed
+                ? `Local fonts verified: ${result.details}`
+                : `Local font check failed: ${result.error}`;
+            }
+      }
+      try {
+        const { runTests, runBrowserChecks } = await import('./tests.js');
+        const calculationReport = await runTests({ onResult: showResult });
+        const browserReport = await runBrowserChecks({ onResult: showResult });
+        const report = {
+          total: calculationReport.total + browserReport.total,
+          passed: calculationReport.passed + browserReport.passed,
+          failed: calculationReport.failed + browserReport.failed,
+          results: [...calculationReport.results, ...browserReport.results],
+          fontFaces: browserReport.fontFaces,
+        };
+        window.__calculationTestReport = calculationReport;
+        window.__browserTestReport = browserReport;
+        window.__testReport = report;
+        document.body.dataset.state = report.failed === 0 ? 'passed' : 'failed';
+        status.textContent = `${report.passed} of ${report.total} checks passed. ${report.failed} failed. Includes ${calculationReport.total} calculation/data checks and ${browserReport.total} browser-only checks.`;
+      } catch (error) {
+        document.body.dataset.state = 'error';
+        status.textContent = `Tests could not finish: ${error.message}`;
+        fontStatus.textContent = 'Font verification did not complete; see the error above.';
+      }
+    </script>
+  </body>
+</html>

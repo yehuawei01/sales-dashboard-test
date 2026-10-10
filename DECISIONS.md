@@ -8,3 +8,11 @@
 - Public data origin was established by comparing every supplied text/reference-label pair with the official PolyAI BANKING77 test file. This resolved the earlier uncertain provenance for those fields. The student approved automatic local loading, with source attribution. How the provided predictions were generated remains unverified.
 - The technical plan selects one approved CSV-reading library (`papa-parse`) and native controls/calculations. This handles quoted CSV fields while keeping the dashboard small; managed build preparation will occur during a later user-requested Build stage.
 - The student confirmed **“Yes—make this the agreed plan; build later.”** `PLAN.md` is now agreed. No app implementation, data staging, or dependency installation occurred during planning.
+
+## Implementation on October 9, 2026
+
+- The student requested Build and a local browser link. The implementation retains the agreed scope and unchanged public data copies; original inputs remain untouched.
+- Papa Parse 5.7.0 handles quoted CSV fields. Native controls, tables, and bars provide the rest. Vite 8.3.4 prepares local previews with exact locked versions and installation scripts disabled.
+- Existing bundled Node 24.19.0 meets Vite’s requirements and passed actual checks, so no replacement was needed. npm 10.9.3 was bootstrapped temporarily from the official registry because the bundled runtime lacked it.
+- Narrow screens stack example text, known type, and predictions. Metric and list-filter behavior remains as agreed.
+- Initial Build checks passed; separate Evaluate and publication remain later stages. All previews bind only to this computer.

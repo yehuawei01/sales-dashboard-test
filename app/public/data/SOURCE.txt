@@ -1,0 +1,30 @@
+BANKING77 example attribution
+
+Source: PolyAI BANKING77, from PolyAI-LDN/task-specific-datasets.
+Repository: https://github.com/PolyAI-LDN/task-specific-datasets
+Official test file: https://github.com/PolyAI-LDN/task-specific-datasets/blob/master/banking_data/test.csv
+
+Citation: Iñigo Casanueva, Tadas Temcinas, Daniela Gerz, Matthew Henderson,
+and Ivan Vulić (2020). Efficient Intent Detection with Dual Sentence Encoders.
+Proceedings of the 2nd Workshop on NLP for ConvAI, ACL 2020.
+Paper: https://arxiv.org/abs/2003.04807
+
+The source examples are licensed under Creative Commons Attribution 4.0
+International (CC BY 4.0).
+Official license: https://github.com/PolyAI-LDN/task-specific-datasets/blob/master/LICENSE
+License terms: https://creativecommons.org/licenses/by/4.0/
+An unchanged copy of the official LICENSE, retrieved October 9, 2026, is
+included as BANKING77-LICENSE.txt.
+
+Local changes: category is stored as true_label. The supplied files add
+case_id, predicted_label, and correct; the LLM file also adds status and error.
+The source text and reference categories were preserved. As recorded in
+PLAN.md, all 3,080 text/reference-category pairs in each supplied CSV matched
+the official test file exactly on October 9, 2026. The three local asset CSVs
+are byte-for-byte copies of those verified inputs in predictions/.
+
+This establishes the text and reference-category origin. Prediction generation,
+training, and prompting remain unverified; the displayed method names describe
+the supplied filenames. The source license does not establish the provenance
+of these added predictions. This local educational comparison makes no claim
+of endorsement by PolyAI or the dataset authors.
