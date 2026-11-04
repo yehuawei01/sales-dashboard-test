@@ -47,6 +47,21 @@ All four existing commits, their authors, file lists, and available historical s
 
 These checks do not establish the training/prompting provenance or performance on new data, certify a business model, or constitute a full accessibility/screen-reader audit. HTTP-failure messages were source-reviewed; the browser suite tests invalid data but did not simulate every failed-network state. Full 200% text zoom and assistive technology were not separately tested. Student review remains possible in the preview and through the documented assumptions; no consequential model question is unresolved.
 
-## Round 2 — publication configuration
+## Round 2 — publication configuration — November 4, 2026
 
-Pending the source checkpoint and the checks at `/sales-dashboard-test/`. Round 1 remains the evidence for the original source; publication must not proceed on that round alone.
+**Result: passing local publication evaluation. Live deployment verification is pending authenticated upload.**
+
+Tested source commit: `e462c8546196ffdb891f714b43c0f7de3c952105`.
+
+This checkpoint includes the agreed publication amendment, Vite repository prefix, public source/plan/evaluation links, GitHub Pages workflow, and Node 24.22.1 pin. The dashboard's calculation code, CSV data, dependencies, tests, and ordinary interactions are unchanged from Round 1, so its independent calculations, invalid-input coverage, keyboard review, and broad layout findings remain applicable. The plan amendment changes delivery only and implements the student's explicit publishing request; it introduces no new model assumption.
+
+- The pinned dependency checker passed again. The workflow YAML parsed with separate build and deploy jobs, uploads only `dist/`, and grants Pages/OIDC write permissions only to the deploy job. Its official Action releases were verified before inclusion.
+- A fresh production build from the clean tested checkpoint passed, retained all three notice sections, and did not modify tracked source. The built website contains only HTML, bundled JS/CSS/fonts, three CSVs, and data/library license notices. No tests, evaluation reports, local originals, development dependencies, Git metadata, or symbolic links are present.
+- The browser suite was reloaded after the configuration change and visibly passed **30 of 30 checks, 0 failed**, again confirming all three font faces loaded.
+- The preview was restarted using the current configuration at `http://127.0.0.1:4173/sales-dashboard-test/`. Its script and stylesheet URLs include `/sales-dashboard-test/assets/`. The overview showed the independent 88.44% / 92.24% / 94.16% scores, 3,080 examples, and 539 mistake examples.
+- At this repository path, Beneficiary not allowed showed 87.50% / 90.00% / 35.00% and 26 mistake examples. Next showed the one-row final page with Next disabled. Reset restored the overview.
+- The expanded build explanation displayed the updated evaluation statement and exact agreed GitHub source, plan, and evaluation URLs. Local data/source and notice links retained the repository prefix. Remote source links await creation/upload of the repository and are part of live verification, not a claimed completed external check.
+- The 390-pixel layout retained document width 390 with the expanded build notes; the mobile example rendering remained readable. Browser Back from the prefixed local license returned to consistent default controls, overview scores, and 539 examples before further interaction. No captured production warning/error logs appeared.
+- Before and after the final run, all three freshness diffs were empty and the relevant-path untracked listing was empty. The plan at the tested commit exists and matches the current plan; its SHA-256 is `c6e32981c784441b7a96f96f66b4c0e974d9da5e2b2c5dee486343163f6b3acb`. Only report changes may follow this round without retesting relevant source.
+
+The limits listed for Round 1 still apply. Evaluation does not claim that GitHub Actions has run, that the intended public URL is live, or that a returning browser has received an ordinary live update; those are Deploy completion checks.
