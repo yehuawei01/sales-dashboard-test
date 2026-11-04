@@ -14,7 +14,7 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="site-title" href="#top">Prediction comparison dashboard</a>
-      <span class="local-label">Local experiment</span>
+      <span class="local-label">Learning experiment</span>
     </div>
   </header>
   <main id="top">
@@ -94,12 +94,13 @@
     <p>Example text and reference labels: <a href="https://github.com/PolyAI-LDN/task-specific-datasets">PolyAI BANKING77</a>, Casanueva et al. (2020), Efficient Intent Detection with Dual Sentence Encoders. <a href="./data/BANKING77-LICENSE.txt">CC BY 4.0 license</a>. The supplied files add case IDs and method predictions; their generation has not been verified.</p>
     <details class="build-notes">
       <summary>How this was built</summary>
-      <p>Planned as a simple local dashboard for comparing three prediction methods and exploring mistakes. The default opens on examples with an incorrect prediction. Category filters change the comparison; search and example filters change only the list.</p>
+      <p>The request was a simple dashboard for comparing three saved prediction methods and exploring their mistakes. The default opens on examples with an incorrect prediction. Category filters change the comparison; search and example filters change only the list. The worked counterexample is Beneficiary not allowed, where the overall leader changes.</p>
       <p>Built with Browser App Builder’s Plan, Build, CSV-reading, and Campus Designer skills. Papa Parse reads the CSV files; native browser controls and calculations provide the comparison. The local build uses Vite. No training, model calls, accounts, analytics, or saved browser selections are used.</p>
-      <p id="verification-note">Initial checks: all 30 calculation, data, font, and text-rendering checks passed. Browser checks confirmed filtering, paging, reset, keyboard search, and desktop and narrow layouts. A separate evaluation of the complete dashboard is still pending; these checks do not verify how the predictions were generated.</p>
+      <p id="verification-note">Evaluation on November 4, 2026: all 30 calculation, data, font, and text-rendering checks passed. An independent CSV recount matched the overall and category scores. Browser checks covered filtering, paging, reset, keyboard search, returning visitors, and desktop and narrow layouts. These checks do not verify how the predictions were generated or establish performance on new data.</p>
+      <p><a href="https://github.com/yehuawei01/sales-dashboard-test">Source code and build records</a> · <a href="https://github.com/yehuawei01/sales-dashboard-test/blob/main/PLAN.md">Request and agreed plan</a> · <a href="https://github.com/yehuawei01/sales-dashboard-test/blob/main/EVALUATION.md">Evaluation evidence</a></p>
       <p><a href="./data/SOURCE.txt">Data source and changes</a> · <a href="./THIRD-PARTY-NOTICES.txt">Library and font licenses</a></p>
     </details>
-    <p class="footer-bottom">A local learning experiment. Uses Duke-inspired styling; no institutional endorsement is implied.</p>
+    <p class="footer-bottom">A learning experiment using saved predictions. Uses Duke-inspired styling; no institutional endorsement is implied.</p>
   </div></footer>
 </body>
 </html>

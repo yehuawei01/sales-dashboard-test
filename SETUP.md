@@ -1,6 +1,6 @@
 # Local browser app setup
 
-Updated October 9, 2026 for the implemented Prediction comparison dashboard.
+Updated November 4, 2026 for evaluation and GitHub Pages publication preparation. The October 9 setup below remains a historical record; current invocations and the repository path are recorded at the end.
 
 ## What is ready
 
@@ -51,3 +51,12 @@ Earlier checkpoints: `76f7f80` added the starter; `177b5e7` recorded checked set
 ## Checks and next stage
 
 Build and development/production previews worked. The test page reported 30 of 30 checks passed, including actual local font faces. Browser evidence is in `BUILD_CHECKS.md`. Separate `evaluate-browser-app` is the next stage. Nothing has been deployed.
+
+## Current evaluation setup — November 4, 2026
+
+- Available bundled Node: the executable above now reports **24.22.1**. `.node-version` is aligned with this tested version for GitHub Actions.
+- npm **10.9.3** was restored from the official npm registry into a temporary helper directory. A clean locked `npm ci` succeeded using `/private/tmp/sales-dashboard-npm-cache`, with 17 packages restored and zero reported vulnerabilities. No dependency or lockfile versions changed.
+- The dependency checker and `npm run build` passed. The production preview process runs on **http://127.0.0.1:4173/sales-dashboard-test/**; the root-only address above is historical. Development uses the same repository prefix on port 5173. The browser tests remain at **http://127.0.0.1:5174/tests/**.
+- Preview restart needs no npm helper when dependencies exist: run the verified Node executable with `node_modules/vite/bin/vite.js preview --port 4173`. The test page uses `node_modules/vite/bin/vite.js --mode test --port 5174`. Start these from the project root and bind only to loopback, as configured in Vite.
+- Rebuild with the verified Node executable and `scripts/notices.mjs`, followed by `node_modules/vite/bin/vite.js build`. Temporary helper locations may disappear; npm is needed for a future clean reinstall, not for serving an existing build.
+- Formal evaluation rounds are in `EVALUATION.md`. The student selected public GitHub destination `yehuawei01/sales-dashboard-test`; publication evidence is in `DEPLOYMENT.md`. The existing approved placeholder Git attribution is retained.

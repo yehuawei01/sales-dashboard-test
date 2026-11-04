@@ -1,6 +1,6 @@
 # Prediction comparison dashboard
 
-Status: agreed on October 9, 2026. The student approved this first version and explicitly requested **build later**. Planning has not changed the starter app.
+Status: the first version was agreed on October 9, 2026 and subsequently built. On November 4, 2026, the student requested formal evaluation and GitHub Pages publication; the amendment below supersedes the original local-only delivery decision. The calculation model and dashboard interactions remain as originally agreed.
 
 ## Brief, audience, and useful task
 
@@ -22,9 +22,9 @@ The three supplied filenames will be labeled **Word-based logistic regression**,
 | Compare the three methods | A compact comparison shows accuracy, correct answers, incorrect answers, and the common denominator. Native horizontal bars use a labeled 0–100% scale alongside exact numbers. | Match the independent totals below. |
 | Explore mistakes | Filter by reference category, search example text, and choose all examples, any method incorrect, or methods disagree. Show the known category and all three predictions side by side. | Match the specified category and mistake counts below. |
 | Keep it simple | One page, ordinary labels, a short “How to read this” explanation, and 25 examples per page. | Main task is usable without knowing programming or machine-learning terminology. |
-| Keep it local | Static app, local bundled files, and locally bundled code/fonts. | No remote data requests, model calls, accounts, analytics, or publication. |
+| Keep runtime self-contained | Static app with bundled files, code, and fonts; GitHub Pages publication authorized November 4. | No external runtime APIs, model calls, accounts, or analytics; only the app's own origin serves assets. |
 
-No requested capability has been deferred. The agreed first version excludes model training, new predictions, confidence estimates, cost/speed comparisons, statistical-significance claims, a full 77-by-77 confusion chart, CSV replacement/export, persistent saved selections, and hosting. They are not needed for the agreed first task; reconsider the plan if requested later.
+No requested capability has been deferred. The agreed first version excludes model training, new predictions, confidence estimates, cost/speed comparisons, statistical-significance claims, a full 77-by-77 confusion chart, CSV replacement/export, and persistent saved selections. Hosting was originally excluded and is now included by the November 4 publication amendment. Reconsider the plan if other excluded features are requested later.
 
 ## Data and origin
 
@@ -132,3 +132,9 @@ When the student later requests Build, use `build-browser-app`, `papa-parse-brow
 Agreed: compare the three methods and explore mistakes; keep the experiment local; explain choices in ordinary language; automatically load the three CSVs; use the first-load mistake view, category/search/list controls, and metric/filter behavior specified above. Technical choices use the smallest justified approved library/build configuration.
 
 The student confirmed **“Yes—make this the agreed plan; build later.”** No material planning question remains. Implementation and dependency preparation are intentionally left for a later user-requested Build stage. Incorporate any later student correction into this plan before building.
+
+## Publication amendment — November 4, 2026
+
+The student requested: “Use evaluate-browser-app to evaluate this app, then use deploy-browser-app to help me publish it on GitHub Pages.” The repository name is `sales-dashboard-test` and the selected GitHub account is `yehuawei01`. This supersedes the original restriction to local delivery and authorizes the normal public GitHub Pages publishing workflow, whose public source/history implications were explained before the request.
+
+Publish the existing dashboard without changing its data, formulas, audience, or main interactions. Use `https://github.com/yehuawei01/sales-dashboard-test` for public source and the repository prefix `/sales-dashboard-test/` for production assets. Keep licenses and a compact build explanation in the app; keep the full request, plan, evaluation, and deployment records in source only. The website artifact contains only `dist/`, excluding tests, local inputs, reports, Git metadata, and development dependencies. Verify production assets, a known score, the category counterexample, source links, and a returning-browser update at the live address.

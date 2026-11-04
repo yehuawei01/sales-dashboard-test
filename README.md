@@ -6,7 +6,9 @@ This local dashboard implements the agreed `PLAN.md`. It automatically loads the
 
 ## Open and use it
 
-While the preview is running, open **http://127.0.0.1:4173/**. This address means this computer. Nothing has been published.
+While the preview is running, open **http://127.0.0.1:4173/sales-dashboard-test/**. This address means this computer. The production path now matches the selected GitHub Pages repository.
+
+Public source destination: [yehuawei01/sales-dashboard-test](https://github.com/yehuawei01/sales-dashboard-test). Intended website: [Prediction comparison dashboard](https://yehuawei01.github.io/sales-dashboard-test/). See `DEPLOYMENT.md` for the actual publishing status and verified revision; an intended address is not proof that deployment succeeded.
 
 1. Read the accuracy cards. Each uses the same examples and shows the exact correct and incorrect counts.
 2. Choose a **Known request type** to change both scores and examples. Try **Beneficiary not allowed** to see a different method lead.
@@ -55,6 +57,12 @@ npm run build
 npm run preview -- --port 4173
 ```
 
-Use a separate terminal for each server. Development: `http://127.0.0.1:5173/`. Tests: `http://127.0.0.1:5174/tests/`. Production preview: `http://127.0.0.1:4173/`. Rebuild and refresh production after source changes. Servers bind to `127.0.0.1` and refuse occupied ports instead of silently choosing another.
+Use a separate terminal for each server. Development: `http://127.0.0.1:5173/sales-dashboard-test/`. Tests: `http://127.0.0.1:5174/tests/`. Production preview: `http://127.0.0.1:4173/sales-dashboard-test/`. Rebuild and refresh production after source changes. Servers bind to `127.0.0.1` and refuse occupied ports instead of silently choosing another.
 
-All 30 initial checks passed: 28 calculation/data checks and two browser-only font/rendering checks. Browser interactions verified scores, changing leaders and ties, filtering, paging, no matches, reset, keyboard search, and desktop/narrow layouts. Evidence and expected results are in `BUILD_CHECKS.md`. Separate Browser App Builder **Evaluate** remains pending; nothing has been published.
+All 30 initial checks passed: 28 calculation/data checks and two browser-only font/rendering checks. Formal evaluation on November 4, 2026 independently recounted the CSVs and reran the browser suite, with all 30 checks passing. Browser interactions verified scores, changing leaders and ties, filtering, paging, no matches, reset, keyboard search, browser Back, and desktop/narrow layouts. `EVALUATION.md` preserves each tested source checkpoint and the publication-path refresh. Historical build evidence is in `BUILD_CHECKS.md`; publishing status and update steps are in `DEPLOYMENT.md`.
+
+## Publishing and updates
+
+GitHub Pages is configured through `.github/workflows/pages.yml`. It checks out `main`, uses the tested Node version in `.node-version`, installs locked dependencies with `npm ci`, builds the app, and uploads only `dist/`. Source tests, development tools, Git metadata, and evaluation reports are excluded from the website bundle. These records remain available in the public source repository.
+
+For later changes: revise the app, evaluate affected behavior, check that the tested source is current, commit, push `main`, and verify the completed Pages run and live known-answer interaction. Vite fingerprints imported JavaScript, CSS, and fonts. If a CSV or other verbatim public asset changes, give it an explicit new filename/version and update its reference before publishing so returning visitors receive the new data. Do not force-push or add confidential data, credentials, or local imports.

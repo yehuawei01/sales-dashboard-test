@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
-// Set to '/repository-name/' before Pages evaluation. No server-dependent routes.
-const base = '/';
+// Match the public GitHub Pages repository path. No server-dependent routes.
+const base = '/sales-dashboard-test/';
 export default defineConfig(({ mode }) => ({
   root: mode === 'test' ? '.' : 'app',
   base: mode === 'test' ? '/' : base,

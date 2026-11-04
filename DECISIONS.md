@@ -16,3 +16,11 @@
 - Existing bundled Node 24.19.0 meets Vite’s requirements and passed actual checks, so no replacement was needed. npm 10.9.3 was bootstrapped temporarily from the official registry because the bundled runtime lacked it.
 - Narrow screens stack example text, known type, and predictions. Metric and list-filter behavior remains as agreed.
 - Initial Build checks passed; separate Evaluate and publication remain later stages. All previews bind only to this computer.
+
+## Evaluation and publication — November 4, 2026
+
+- The student requested Evaluate followed by Deploy to GitHub Pages. This supersedes the earlier local-only delivery choice, without changing the dashboard's model, dataset, audience, or main interactions.
+- Selected destination: the public `yehuawei01/sales-dashboard-test` repository, using the student's supplied account and repository name. The public source/history implications were explained before this request. Existing approved `Local Experiment <local-experiment@example.invalid>` attribution is preserved; no history rewrite or personal email substitution is needed.
+- Independent recount and the existing 30 browser checks passed on the original built source. Preserve those results as Round 1 in `EVALUATION.md`; refresh affected checks after publishing configuration and source links are included in the next checkpoint.
+- The available bundled Node is now 24.22.1. A clean locked installation with npm 10.9.3 and a production build passed; `.node-version` aligns the publishing workflow with this tested runtime. Application dependencies remain pinned and unchanged.
+- Publication uses bundled data and local assets only. No backend, account system for visitors, runtime AI calls, analytics, or secret keys are added.
