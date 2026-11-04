@@ -8,7 +8,7 @@ Status: first public deployment succeeded and was verified in the browser on Nov
 - Publishing workflow: `.github/workflows/pages.yml`
 - Production repository prefix: `/sales-dashboard-test/`
 - Evaluation evidence: `EVALUATION.md`, including the final tested source checkpoint.
-- Final evaluated source commit: `e462c8546196ffdb891f714b43c0f7de3c952105`.
+- Final evaluated app source commit: `d5bac404a7ecdd996c3bad36e5b0257d4746db2d` (Round 3). Initial publication used the Round 2 source checkpoint recorded below.
 - Node: 24.22.1; npm used for local evaluation: 10.9.3.
 
 The student's November 4 request authorizes Evaluate followed by the public GitHub Pages workflow. The student supplied the account `yehuawei01` and repository name `sales-dashboard-test`, and browser sign-in to that personal account was observed. Existing history and the approved placeholder author identity are preserved. No tokens or passwords belong in the project or chat.

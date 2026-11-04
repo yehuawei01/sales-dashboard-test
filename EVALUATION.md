@@ -65,3 +65,15 @@ This checkpoint includes the agreed publication amendment, Vite repository prefi
 - Before and after the final run, all three freshness diffs were empty and the relevant-path untracked listing was empty. The plan at the tested commit exists and matches the current plan; its SHA-256 is `c6e32981c784441b7a96f96f66b4c0e974d9da5e2b2c5dee486343163f6b3acb`. Only report changes may follow this round without retesting relevant source.
 
 The limits listed for Round 1 still apply. Evaluation does not claim that GitHub Actions has run, that the intended public URL is live, or that a returning browser has received an ordinary live update; those are Deploy completion checks.
+
+## Round 3 — publication note and ordinary update — November 4, 2026
+
+**Result: passing evaluation of the small post-publication update.**
+
+Tested source commit: `d5bac404a7ecdd996c3bad36e5b0257d4746db2d`.
+
+The only app change since Round 2 is one paragraph in the existing build disclosure: the observed publication date and a link to `DEPLOYMENT.md`. README/deployment reports now describe the first successful publication. Calculation modules, CSVs, dependencies, workflow, build configuration, tests, and the agreed plan are unchanged, so Round 2's 30 passing checks and independent numerical evidence are retained rather than repeated for this copy edit.
+
+A production build from the clean checkpoint passed. At the local repository-prefixed preview, the disclosure rendered “Published on November 4, 2026. Publication and update record.” with the exact selected repository's deployment-record link. Overview scores remained 88.44% / 92.24% / 94.16%. At widths 1280 and 390, document width equaled viewport width; the added note stayed within the existing disclosure layout. Source/plan freshness was checked before publication. An old browser connection initially failed and a fresh preview connection recovered; no application defect or source change was involved.
+
+Before this update, the first live deployment was independently verified at the public URL with overview scores, the beneficiary counterexample, pagination/reset, and a working public source link. The same live browser was retained with no `publication-note` element present. The ordinary reload and new-note observation are recorded in `DEPLOYMENT.md` after this update's workflow completes.
