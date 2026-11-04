@@ -1,5 +1,15 @@
 # Prediction comparison dashboard evaluation
 
+## Round 4 — interactive mistake patterns — November 4, 2026
+
+Tested source: `2f119ad2500b5b2e1d74e3cd30c11875f644bf04`. Result: **31 of 31 browser checks passed**, including 29 calculation/data checks and two real font/rendering checks. A clean-checkpoint production build passed with no dependency changes. The user explicitly selected grouping by one, two, or three methods wrong; PLAN.md records the revised behavior.
+
+An independent standard-library CSV recount established 355 one-method, 132 two-method, and 52 three-method mistakes, totaling 539. The hand fixture partitions errors into [2,2,1], including its shared wrong answer. Tests verify these partitions, actual group filtering, empty counts, category counts, and search intersection. For the beneficiary category, independent existing counts imply 20 / 3 / 3: 26 error examples, 35 summed method errors, and three triple errors give three double errors and twenty single errors.
+
+Production browser observations: All three wrong showed 52 examples and three pages; Next showed 26–50. Keyboard Enter on One method wrong switched to 355 examples and reset pagination. A search with no matches preserved the group's counts and category accuracy. Reset restored all defaults. Beneficiary group counts were 26 total, 20 single, three double, and three triple errors with category scores unchanged. Choosing Methods disagree deselected every group and showed its independent 25 examples. Two methods wrong showed 132 examples and six pages. Browser Back restored consistent default controls, counts, and scores before further interaction.
+
+The 390-pixel mobile layout had document width 390. A screenshot of the actual controls confirmed stacked buttons, readable labels/counts, visible pressed/focus states, search and pagination. Desktop controls were reviewed at 1280 pixels. Production warning/error logs were empty. Existing provenance and accessibility limitations remain; no full assistive-technology audit is claimed. Required relevant-path freshness checks and plan checks were clean before the final run; subsequent commits may add reports only. Live update verification is recorded in DEPLOYMENT.md.
+
 ## Round 1 — November 4, 2026
 
 **Result: passing local evaluation of the existing built dashboard.** Publishing configuration is evaluated separately in Round 2.
