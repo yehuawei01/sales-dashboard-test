@@ -1,6 +1,6 @@
 # GitHub Pages deployment
 
-Status: first public deployment succeeded and was verified in the browser on November 4, 2026. An ordinary update is being checked in the same returning browser before final handoff.
+Status: **Deploy complete.** The public site, its ordinary update in a returning browser, and all 12 published files were verified on November 4, 2026.
 
 - Public source: `https://github.com/yehuawei01/sales-dashboard-test`
 - Verified website: `https://yehuawei01.github.io/sales-dashboard-test/`
@@ -9,6 +9,7 @@ Status: first public deployment succeeded and was verified in the browser on Nov
 - Production repository prefix: `/sales-dashboard-test/`
 - Evaluation evidence: `EVALUATION.md`, including the final tested source checkpoint.
 - Final evaluated app source commit: `d5bac404a7ecdd996c3bad36e5b0257d4746db2d` (Round 3). Initial publication used the Round 2 source checkpoint recorded below.
+- Verified updated publication commit: `5c83462d42b43687bddd6222feb2aa6441242307`. Relevant app source and plan match the final evaluated app checkpoint; only reports differ.
 - Node: 24.22.1; npm used for local evaluation: 10.9.3.
 
 The student's November 4 request authorizes Evaluate followed by the public GitHub Pages workflow. The student supplied the account `yehuawei01` and repository name `sales-dashboard-test`, and browser sign-in to that personal account was observed. Existing history and the approved placeholder author identity are preserved. No tokens or passwords belong in the project or chat.
@@ -19,9 +20,9 @@ The workflow builds with locked npm dependencies and uploads only `dist/`. Tests
 
 Official Action releases were checked on November 4, 2026: checkout v7.0.1, setup-node v7.1.0, configure-pages v6.0.0, upload-pages-artifact v5.0.0, deploy-pages v5.0.1. The template was updated only for setup-node's newer verified patch/minor release. Publishing uses GitHub Actions as the repository's Pages source.
 
-## Required completion evidence
+## Completion evidence
 
-Record the final evaluated source commit and published commit, completed workflow URL/result, observed live website address, successful assets under the repository prefix, the overview scores, the beneficiary counterexample, working source links, and a returning-browser update. A push or queued workflow alone does not complete Deploy.
+The sections below record successful workflow completion and actual live observations, rather than treating a push or queued run as deployment success. Source tests and the formal local evaluation remain in `EVALUATION.md`.
 
 ## First publication — November 4, 2026
 
@@ -32,6 +33,18 @@ Record the final evaluated source commit and published commit, completed workflo
 - The live browser loaded `https://yehuawei01.github.io/sales-dashboard-test/`, including the fingerprinted script and stylesheet beneath the repository prefix. It showed 3,080 examples, 88.44% / 92.24% / 94.16%, and 539 mistake examples.
 - Beneficiary not allowed changed scores to 87.50% / 90.00% / 35.00% and 26 mistake examples; Next reached the one-row final page, and Reset restored the overview. Clicking Source code and build records opened the actual public `yehuawei01/sales-dashboard-test` repository.
 - The same browser returned to the live page before the ordinary update and confirmed the new publication note was not yet present. The update adds the now-verified publication date and a link to this record, without changing calculations or data. Returning-browser verification follows after that source checkpoint is deployed.
+
+## Verified ordinary update — November 4, 2026
+
+- Evaluated app checkpoint: `d5bac404a7ecdd996c3bad36e5b0257d4746db2d` (Round 3); published commit: `5c83462d42b43687bddd6222feb2aa6441242307`.
+- Successful workflow: [Publish browser app, run 41892709699](https://github.com/yehuawei01/sales-dashboard-test/actions/runs/41892709699). The package job passed in 16 seconds and deploy passed in 1 minute 12 seconds. Runner-image migration annotations were informational.
+- The same browser tab that had visited the first publication received the new publication note with an ordinary reload of the unchanged live URL. It displayed “Published on November 4, 2026. Publication and update record.”, the original overview scores, and 539 mistake examples. No cache clearing, new browser profile, or query-string cache bypass was used for this returning-browser check.
+- Changing the request type after that reload again produced 87.50% / 90.00% / 35.00% and 26 beneficiary mistake examples. Reset returned the tab to the default view. Captured live browser warning/error logs were empty.
+- A separate HTTP comparison fetched every file from the live repository-prefixed URL and compared its bytes with the evaluated local `dist/` build: **12 of 12 matched**, with successful HTTP responses and no failures. This covers HTML, JS, CSS, all three fonts, all three CSVs, source/data license information, and the combined third-party notices.
+- The repository's About section links to the live website. The in-app source link opened the actual public repository; its source, plan, evaluation, and publication-record paths are present in the pushed history.
+- Final source/plan freshness checks passed. Any report-only commit following these observations preserves the evaluated and deployed app source and plan. The final evidence-only commit uses GitHub's documented `[skip ci]` instruction so it does not redeploy an identical website; this does not alter or disable the workflow. See [GitHub's skip-workflow documentation](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs).
+
+No live verification gate remains unresolved. The evaluation's model-provenance and accessibility limitations still apply; publication does not remove them.
 
 ## Authentication and authorization history
 
