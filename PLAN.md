@@ -1,5 +1,9 @@
 # Prediction comparison dashboard
 
+## Agreed interactive extension — November 4, 2026
+
+The user selected mistake patterns: exactly one, two, or all three methods wrong. Add clickable groups with counts for the selected reference category, calculated from exact prediction/reference equality. The three groups partition all mistakes (355 + 132 + 52 = 539 on the default data). Counts are before text search; selecting a group filters only examples and starts at page one. Category selection updates group counts and scores; search intersects the selected group. Existing All examples and Methods disagree views remain available and deselect the mistake-group buttons. Reset restores all categories, Any method incorrect, empty search, and page one. Empty groups remain selectable and show the existing readable empty state. Use native keyboard-operable buttons with pressed state, responsive layout, and no new dependencies or storage. All-three-wrong includes shared wrong answers, not only disagreement. Verify independent fixture counts [2,2,1], real-data counts [355,132,52], combined filters, reset, keyboard operation, and narrow rendering. This extends the earlier interaction exclusions only as stated and leaves the data and accuracy formulas unchanged.
+
 Status: the first version was agreed on October 9, 2026 and subsequently built. On November 4, 2026, the student requested formal evaluation and GitHub Pages publication; the amendment below supersedes the original local-only delivery decision. The calculation model and dashboard interactions remain as originally agreed.
 
 ## Brief, audience, and useful task

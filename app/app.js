@@ -1,4 +1,4 @@
-import { METHODS, parsePredictionCsv, joinPredictions, summarize, selectCategory, filterExamples, paginate, displayCategory } from './model.js';
+import { METHODS, parsePredictionCsv, joinPredictions, summarize, selectCategory, filterExamples, paginate, displayCategory, mistakeCounts } from './model.js';
 import { createNode as node, createExampleRow } from './render.js';
 
 const get = (id) => document.getElementById(id);
@@ -42,6 +42,13 @@ function updateComparison(selected) {
 }
 
 function updateExamples(selected) {
+  const groups = mistakeCounts(selected);
+  document.querySelectorAll('[data-mistake-view]').forEach(button => {
+    const view = button.dataset.mistakeView;
+    const count = view === 'incorrect' ? groups[1] + groups[2] + groups[3] : groups[Number(view.slice(-1))];
+    button.querySelector('.mistake-count').textContent = number(count);
+    button.setAttribute('aria-pressed', String(elements.view.value === view));
+  });
   const filtered = filterExamples(selected, { view: elements.view.value, search: elements.search.value });
   currentPage = paginate(filtered, page, 25);
   page = currentPage.page;
@@ -69,6 +76,12 @@ function update({ comparison = false, resetPage = true } = {}) {
 
 elements.category.addEventListener('change', () => update({ comparison: true }));
 elements.view.addEventListener('change', () => update());
+document.querySelectorAll('[data-mistake-view]').forEach(button => {
+  button.addEventListener('click', () => {
+    elements.view.value = button.dataset.mistakeView;
+    update();
+  });
+});
 elements.search.addEventListener('input', () => update());
 elements.reset.addEventListener('click', () => {
   elements.category.value = '';

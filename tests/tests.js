@@ -1,5 +1,6 @@
 import {
   METHODS,
+  mistakeCounts,
   parsePredictionCsv,
   joinPredictions,
   summarize,
@@ -118,6 +119,17 @@ export async function runTests({ fetcher = globalThis.fetch, onResult = () => {}
     equal(categories, ['A', 'B'], 'fixture categories');
     const metrics = counts(cases, [4, 6, 5], [4, 2, 3], [8, 8, 8]);
     equal(metrics.map(metric => metric.accuracy.toFixed(2)), ['50.00', '75.00', '62.50'], 'display precision');
+  });
+
+  await check('Mistake groups partition errors without dropping shared wrong answers', () => {
+    const { cases } = fixtureData();
+    equal(mistakeCounts(cases), [3, 2, 2, 1], 'independent fixture partition');
+    equal(filterExamples(cases, {view: 'wrong1'}).map(row => row.id), ['a3', 'b2'], 'one method wrong');
+    equal(filterExamples(cases, {view: 'wrong2'}).map(row => row.id), ['a4', 'b3'], 'two methods wrong');
+    equal(filterExamples(cases, {view: 'wrong3'}).map(row => row.id), ['b4'], 'shared wrong answer included');
+    equal(filterExamples(cases, {view: 'wrong2', search: 'Fourth'}).map(row => row.id), ['a4'], 'group and search intersect');
+    equal(mistakeCounts([]), [0, 0, 0, 0], 'empty groups');
+    equal(mistakeCounts(selectCategory(cases, 'A')), [2, 1, 1, 0], 'category partition');
   });
 
   await check('Category filtering changes the fixture’s denominator and leading method', () => {
@@ -333,6 +345,8 @@ export async function runTests({ fetcher = globalThis.fetch, onResult = () => {}
   await check('The real mistake/disagreement counts distinguish agreement from correctness', () => {
     const cases = requireRealData();
     equal(filterExamples(cases, { view: 'incorrect' }).length, 539, 'any error');
+    equal(mistakeCounts(cases), [2541, 355, 132, 52], 'independent full-data partition');
+    equal(['wrong1','wrong2','wrong3'].map(view => filterExamples(cases, {view}).length), [355,132,52], 'real group filtering');
     equal(filterExamples(cases, { view: 'disagree' }).length, 511, 'disagreement');
     equal(cases.filter(item => Object.values(item.correct).every(value => !value)).length, 52, 'all three wrong');
     const defaultPage = paginate(filterExamples(cases, { view: 'incorrect' }));

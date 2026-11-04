@@ -60,11 +60,19 @@
           </div>
           <button id="reset" class="secondary-button" type="button">Reset view</button>
         </div>
+        <h3 id="mistake-groups-title">Explore mistake patterns</h3>
+        <p id="mistake-groups-help" class="control-help">Choose a group to see its examples. Counts cover the selected request type, before text search. Accuracy scores stay unchanged.</p>
+        <div class="mistake-groups" role="group" aria-labelledby="mistake-groups-title" aria-describedby="mistake-groups-help">
+          <button type="button" class="mistake-group" data-mistake-view="incorrect" aria-pressed="true">All mistakes <span class="mistake-count">0</span></button>
+          <button type="button" class="mistake-group" data-mistake-view="wrong1" aria-pressed="false">One method wrong <span class="mistake-count">0</span></button>
+          <button type="button" class="mistake-group" data-mistake-view="wrong2" aria-pressed="false">Two methods wrong <span class="mistake-count">0</span></button>
+          <button type="button" class="mistake-group" data-mistake-view="wrong3" aria-pressed="false">All three wrong <span class="mistake-count">0</span></button>
+        </div>
         <div class="example-controls">
-          <div><label for="view">Show examples</label><select id="view"><option value="incorrect">Any method incorrect</option><option value="disagree">Methods disagree</option><option value="all">All examples</option></select></div>
+          <div><label for="view">Show examples</label><select id="view"><option value="incorrect">Any method incorrect</option><option value="wrong1">One method wrong</option><option value="wrong2">Two methods wrong</option><option value="wrong3">All three wrong</option><option value="disagree">Methods disagree</option><option value="all">All examples</option></select></div>
           <div class="search-control"><label for="search">Search example text</label><input id="search" type="search" placeholder="Try “card” or “transfer”" autocomplete="off" aria-describedby="list-scope"></div>
         </div>
-        <p id="list-scope" class="control-help list-scope">These two controls affect the example list only. The accuracy scores above stay based on the selected request type.</p>
+        <p id="list-scope" class="control-help list-scope">The buttons and Show examples select the same example view. Search narrows that view. All three methods can be wrong even when they agree on an answer.</p>
         <div class="results-toolbar">
           <p id="results-count" role="status" aria-live="polite" aria-atomic="true"></p>
           <nav class="pagination" aria-label="Example pages"><button id="previous" class="secondary-button" type="button">Previous</button><span id="page-label"></span><button id="next" class="secondary-button" type="button">Next</button></nav>
@@ -96,7 +104,7 @@
       <summary>How this was built</summary>
       <p>The request was a simple dashboard for comparing three saved prediction methods and exploring their mistakes. The default opens on examples with an incorrect prediction. Category filters change the comparison; search and example filters change only the list. The worked counterexample is Beneficiary not allowed, where the overall leader changes.</p>
       <p>Built with Browser App Builder’s Plan, Build, CSV-reading, and Campus Designer skills. Papa Parse reads the CSV files; native browser controls and calculations provide the comparison. The local build uses Vite. No training, model calls, accounts, analytics, or saved browser selections are used.</p>
-      <p id="verification-note">Evaluation on November 4, 2026: all 30 calculation, data, font, and text-rendering checks passed. An independent CSV recount matched the overall and category scores. Browser checks covered filtering, paging, reset, keyboard search, returning visitors, and desktop and narrow layouts. These checks do not verify how the predictions were generated or establish performance on new data.</p>
+      <p id="verification-note">Evaluation on November 4, 2026: all 31 calculation, data, font, and text-rendering checks passed, including the mistake-group partition. Independent counts matched the overall and category scores. Browser checks covered grouping, combined filters, paging, reset, keyboard use, returning visitors, and desktop and narrow layouts. These checks do not verify how the predictions were generated or establish performance on new data.</p>
       <p id="publication-note">Published on November 4, 2026. <a href="https://github.com/yehuawei01/sales-dashboard-test/blob/main/DEPLOYMENT.md">Publication and update record</a>.</p>
       <p><a href="https://github.com/yehuawei01/sales-dashboard-test">Source code and build records</a> · <a href="https://github.com/yehuawei01/sales-dashboard-test/blob/main/PLAN.md">Request and agreed plan</a> · <a href="https://github.com/yehuawei01/sales-dashboard-test/blob/main/EVALUATION.md">Evaluation evidence</a></p>
       <p><a href="./data/SOURCE.txt">Data source and changes</a> · <a href="./THIRD-PARTY-NOTICES.txt">Library and font licenses</a></p>

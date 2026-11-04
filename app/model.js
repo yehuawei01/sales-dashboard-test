@@ -199,10 +199,21 @@ export function selectCategory(cases, category = '') {
   return category ? cases.filter((example) => example.trueLabel === category) : cases;
 }
 
+export function mistakeCounts(cases) {
+  const counts = [0, 0, 0, 0];
+  for (const example of cases) {
+    const wrong = METHODS.filter(method => example.predictions[method.id] !== example.trueLabel).length;
+    counts[wrong] += 1;
+  }
+  return counts;
+}
+
 export function filterExamples(cases, { view = 'incorrect', search = '' } = {}) {
   const query = String(search).trim().toLowerCase();
   return cases.filter((example) => {
-    const matchesView = view === 'all' || (view === 'incorrect' && example.anyIncorrect) || (view === 'disagree' && example.disagree);
+    const wrong = METHODS.filter(method => example.predictions[method.id] !== example.trueLabel).length;
+    const matchesView = view === 'all' || (view === 'incorrect' && example.anyIncorrect) || (view === 'disagree' && example.disagree)
+      || (['wrong1', 'wrong2', 'wrong3'].includes(view) && wrong === Number(view.slice(-1)));
     return matchesView && (!query || example.text.toLowerCase().includes(query));
   });
 }

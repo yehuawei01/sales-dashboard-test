@@ -1,5 +1,9 @@
 # Dashboard planning decisions
 
+## Interactive mistake groups — November 4, 2026
+
+The user chose groups by the number of methods wrong, rather than banking-topic grouping or custom tagging. Counts follow the selected category before text search. Group buttons and the existing view selector control one shared example view, avoiding contradictory simultaneous filters. Accuracy scores retain their category denominator. Native buttons and existing local data are sufficient; no additional dependency, storage, or remote model is needed.
+
 ## October 9, 2026
 
 - The student selected **compare the three methods and explore their mistakes** as the main task. The first version centers on a comparison and example investigation.

@@ -15,6 +15,8 @@ Public source: [yehuawei01/sales-dashboard-test](https://github.com/yehuawei01/s
 3. Use **Show examples** and **Search example text** to investigate mistakes. These controls change only the list; scores remain based on the selected request type.
 4. Use **Previous** and **Next** for pages of 25 examples. **Reset view** restores all request types, a blank search, the first page, and **Any method incorrect**.
 
+Click **One method wrong**, **Two methods wrong**, or **All three wrong** to investigate mistake patterns. Default counts are 355, 132, and 52; together they make 539 mistakes. Group counts follow the selected request type before text search. Search narrows the selected group without changing accuracy scores or group counts. The buttons and Show examples control the same view. All-three-wrong includes examples where all methods agreed on a wrong answer. Reset restores All mistakes.
+
 **How to read this comparison** explains the terms. Accuracy means matching the reference category exactly. Agreement does not prove correctness: all three methods can agree on a wrong answer. Full text remains visible; small screens stack each example’s reference and three predictions vertically.
 
 If the preview stops, ask Codex: **“Restart this folder’s local dashboard preview.”** You do not need to type commands. Machine details and restart commands are in `SETUP.md`.
