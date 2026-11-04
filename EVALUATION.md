@@ -2,6 +2,8 @@
 
 ## Round 4 — interactive mistake patterns — November 4, 2026
 
+Live follow-up: publication `8143b74247c93d251df3bf47812a60cf073cc945` passed workflow 41895620046. All three group buttons were verified on the public site with totals 355 / 132 / 52 and unchanged accuracy scores. Normal reload restored consistent default controls and counts using the new fingerprinted script; captured live errors/warnings were empty. See DEPLOYMENT.md for the workflow link and source checkpoint.
+
 Tested source: `2f119ad2500b5b2e1d74e3cd30c11875f644bf04`. Result: **31 of 31 browser checks passed**, including 29 calculation/data checks and two real font/rendering checks. A clean-checkpoint production build passed with no dependency changes. The user explicitly selected grouping by one, two, or three methods wrong; PLAN.md records the revised behavior.
 
 An independent standard-library CSV recount established 355 one-method, 132 two-method, and 52 three-method mistakes, totaling 539. The hand fixture partitions errors into [2,2,1], including its shared wrong answer. Tests verify these partitions, actual group filtering, empty counts, category counts, and search intersection. For the beneficiary category, independent existing counts imply 20 / 3 / 3: 26 error examples, 35 summed method errors, and three triple errors give three double errors and twenty single errors.

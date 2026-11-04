@@ -1,6 +1,6 @@
 # GitHub Pages deployment
 
-Status: **Deploy complete.** The public site, its ordinary update in a returning browser, and all 12 published files were verified on November 4, 2026.
+Status: **Deploy complete, including the interactive mistake groups.** The latest update passed 31 checks and was verified live on November 4, 2026. Earlier publication and file-comparison evidence is preserved below.
 
 - Public source: `https://github.com/yehuawei01/sales-dashboard-test`
 - Verified website: `https://yehuawei01.github.io/sales-dashboard-test/`
@@ -8,13 +8,19 @@ Status: **Deploy complete.** The public site, its ordinary update in a returning
 - Publishing workflow: `.github/workflows/pages.yml`
 - Production repository prefix: `/sales-dashboard-test/`
 - Evaluation evidence: `EVALUATION.md`, including the final tested source checkpoint.
-- Final evaluated app source commit: `d5bac404a7ecdd996c3bad36e5b0257d4746db2d` (Round 3). Initial publication used the Round 2 source checkpoint recorded below.
-- Verified updated publication commit: `5c83462d42b43687bddd6222feb2aa6441242307`. Relevant app source and plan match the final evaluated app checkpoint; only reports differ.
+- Final evaluated app source commit: `2f119ad2500b5b2e1d74e3cd30c11875f644bf04` (Round 4).
+- Latest verified publication commit: `8143b74247c93d251df3bf47812a60cf073cc945`. Relevant app source and plan match the evaluated checkpoint; only the evaluation report differs.
 - Node: 24.22.1; npm used for local evaluation: 10.9.3.
 
 The student's November 4 request authorizes Evaluate followed by the public GitHub Pages workflow. The student supplied the account `yehuawei01` and repository name `sales-dashboard-test`, and browser sign-in to that personal account was observed. Existing history and the approved placeholder author identity are preserved. No tokens or passwords belong in the project or chat.
 
 ## Website contents
+
+## Mistake-group update — November 4, 2026
+
+[Workflow 41895620046](https://github.com/yehuawei01/sales-dashboard-test/actions/runs/41895620046) completed successfully for `8143b74247c93d251df3bf47812a60cf073cc945` (build 12 seconds, deploy 19 seconds). The live browser selected all three groups and observed 355, 132, and 52 matching examples while overview accuracy stayed 88.44% / 92.24% / 94.16%. An ordinary reload loaded the new fingerprinted script `index-CCIVc5vd.js` and restored consistent default selection/counts. Captured live errors/warnings were empty. Local evaluation additionally checked category/search intersections, pagination reset, keyboard use, and the mobile controls. Final evidence-only changes do not alter the tested source or plan and are saved with `[skip ci]`.
+
+### Published files
 
 The workflow builds with locked npm dependencies and uploads only `dist/`. Tests, reports, source history, local originals in `predictions/`, development dependencies, and Git metadata are not website files. Source, plan, evaluation, and deployment records remain public in the repository. The app retains the BANKING77 attribution/license, library/font notices, and visible limits on prediction provenance.
 
