@@ -6,9 +6,9 @@ This local dashboard implements the agreed `PLAN.md`. It automatically loads the
 
 ## Open and use it
 
-While the preview is running, open **http://127.0.0.1:4173/sales-dashboard-test/**. This address means this computer. The production path now matches the selected GitHub Pages repository.
+Open the published [Prediction comparison dashboard](https://yehuawei01.github.io/sales-dashboard-test/). GitHub Pages publication and the live overview/category interactions were verified on November 4, 2026.
 
-Public source destination: [yehuawei01/sales-dashboard-test](https://github.com/yehuawei01/sales-dashboard-test). Intended website: [Prediction comparison dashboard](https://yehuawei01.github.io/sales-dashboard-test/). See `DEPLOYMENT.md` for the actual publishing status and verified revision; an intended address is not proof that deployment succeeded.
+Public source: [yehuawei01/sales-dashboard-test](https://github.com/yehuawei01/sales-dashboard-test). See `DEPLOYMENT.md` for verified revisions, workflow evidence, and update instructions. For local inspection while the preview is running, use **http://127.0.0.1:4173/sales-dashboard-test/**; that address works only on the computer running the preview.
 
 1. Read the accuracy cards. Each uses the same examples and shows the exact correct and incorrect counts.
 2. Choose a **Known request type** to change both scores and examples. Try **Beneficiary not allowed** to see a different method lead.

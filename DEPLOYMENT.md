@@ -1,9 +1,9 @@
 # GitHub Pages deployment
 
-Status: local publication evaluation passed; upload is awaiting authorization of the official GitHub publishing tool. Nothing has been published. Do not treat the intended website address as a verified live result.
+Status: first public deployment succeeded and was verified in the browser on November 4, 2026. An ordinary update is being checked in the same returning browser before final handoff.
 
-- Authorized public source destination: `https://github.com/yehuawei01/sales-dashboard-test`
-- Intended website: `https://yehuawei01.github.io/sales-dashboard-test/`
+- Public source: `https://github.com/yehuawei01/sales-dashboard-test`
+- Verified website: `https://yehuawei01.github.io/sales-dashboard-test/`
 - Branch: `main`
 - Publishing workflow: `.github/workflows/pages.yml`
 - Production repository prefix: `/sales-dashboard-test/`
@@ -23,13 +23,23 @@ Official Action releases were checked on November 4, 2026: checkout v7.0.1, setu
 
 Record the final evaluated source commit and published commit, completed workflow URL/result, observed live website address, successful assets under the repository prefix, the overview scores, the beneficiary counterexample, working source links, and a returning-browser update. A push or queued workflow alone does not complete Deploy.
 
-## Access prerequisite
+## First publication — November 4, 2026
 
-Browser sign-in as `yehuawei01` succeeded. The official GitHub CLI 2.103.3 was downloaded from its release and its SHA-256 matched GitHub's published digest, but it is not authenticated. A check of the existing Git credential helper found no reusable GitHub publishing credential, without displaying or changing credentials.
+- Evaluated source: `e462c8546196ffdb891f714b43c0f7de3c952105` (Round 2).
+- Published commit: `0b0e8569cf8ae256dd6f3700b6b08a73fcb062e8`. Its relevant source and plan are identical to the evaluated checkpoint; the difference is evaluation/deployment reports.
+- Successful workflow: [Publish browser app, run 41890224775](https://github.com/yehuawei01/sales-dashboard-test/actions/runs/41890224775). The package job completed in 18 seconds and deploy in 8 seconds. The Actions runner-image migration annotation was informational; neither job failed.
+- GitHub Pages was enabled with build type `workflow` before pushing `main`. The repository was created empty, with no conflicting generated README or forced history change.
+- The live browser loaded `https://yehuawei01.github.io/sales-dashboard-test/`, including the fingerprinted script and stylesheet beneath the repository prefix. It showed 3,080 examples, 88.44% / 92.24% / 94.16%, and 539 mistake examples.
+- Beneficiary not allowed changed scores to 87.50% / 90.00% / 35.00% and 26 mistake examples; Next reached the one-row final page, and Reset restored the overview. Clicking Source code and build records opened the actual public `yehuawei01/sales-dashboard-test` repository.
+- The same browser returned to the live page before the ordinary update and confirmed the new publication note was not yet present. The update adds the now-verified publication date and a link to this record, without changing calculations or data. Returning-browser verification follows after that source checkpoint is deployed.
 
-Automatic approval review rejected initiating `gh auth login` with the additional `workflow` scope because that credential permission had not been specifically authorized. No OAuth flow was started, no extra scope was granted, and no credentials were created or stored by that rejected attempt. Explicit authorization to initiate this flow is required before retrying; the student will review and approve access on GitHub itself. Repository and workflow access lets the official tool upload source and GitHub Actions workflows and is broader than browser sign-in alone.
+## Authentication and authorization history
 
-After access is resolved, inspect whether `yehuawei01/sales-dashboard-test` already exists before creating it, preserve unrelated existing work, enable Pages with GitHub Actions, rerun the freshness checks, push the authorized branch, and complete the live evidence above. No remote was added and no repository was created during local preparation.
+Browser sign-in as `yehuawei01` succeeded. The official GitHub CLI 2.103.3 was downloaded from its release and its SHA-256 matched GitHub's published digest. A check of the pre-existing Git credential helper found no reusable GitHub publishing credential, without displaying or changing credentials.
+
+Automatic approval review initially rejected initiating `gh auth login` with the additional `workflow` scope because it had not been specifically authorized. The student subsequently replied “I approve,” then completed device authorization on GitHub and confirmed “done.” GitHub CLI reported successful login to `yehuawei01`, using the system keyring. The normal CLI scopes are `repo`, `workflow`, `read:org`, and `gist`; no token or password is stored in project files. Publishing used a per-command GitHub CLI credential helper, without changing global Git credential settings.
+
+The authenticated destination check confirmed the repository did not exist before creation. The only remote added is `origin`, pointing to `https://github.com/yehuawei01/sales-dashboard-test.git`. Source freshness and plan applicability passed immediately before upload. No unrelated repository, identity, or branch was changed.
 
 ## Ordinary updates
 
